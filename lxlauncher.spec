@@ -8,7 +8,7 @@ Source0:	http://downloads.sourceforge.net/lxde/%{name}-%{version}.tar.gz
 # Source0-md5:	5dbe6076eb1a411278e1fc2bccf2d75d
 # From Mandriva
 Patch0:		%{name}-0.2.1-fix-segfault.patch
-URL:		http://www.lxde.org/
+URL:		http://wiki.lxde.org/en/LXLauncher
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	intltool >= 0.40.0
