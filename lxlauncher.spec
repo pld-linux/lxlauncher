@@ -6,18 +6,19 @@ License:	GPL v3
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/lxde/%{name}-%{version}.tar.gz
 # Source0-md5:	5dbe6076eb1a411278e1fc2bccf2d75d
-# From Mandriva
 Patch0:		%{name}-0.2.1-fix-segfault.patch
 URL:		http://wiki.lxde.org/en/LXLauncher
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	intltool >= 0.40.0
+BuildRequires:	menu-cache-devel
 BuildRequires:	pkgconfig
+BuildRequires:	startup-notification-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-LXLauncher is an open source clone of Asus launcher for EeePC.
-It outperformes the original launcher developed by Xandros.
+LXLauncher is an open source clone of Asus launcher for EeePC. It
+outperformes the original launcher developed by Xandros.
 
 %prep
 %setup -q
@@ -25,6 +26,7 @@ It outperformes the original launcher developed by Xandros.
 
 %build
 %configure
+touch po/stamp-it
 %{__make}
 
 %install
