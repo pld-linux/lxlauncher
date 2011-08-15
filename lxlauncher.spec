@@ -1,15 +1,24 @@
+#
+# Conditional build:
+%bcond_with		gtk3		# build GTK+3 disables GTK+2
+%bcond_without		gtk2	# build with GTK+2
+
+%if %{with gtk3}
+%undefine	with_gtk2
+%endif
+
 Summary:	lxauncher
 Name:		lxlauncher
-Version:	0.2.1
-Release:	2
+Version:	0.2.2
+Release:	1
 License:	GPL v3
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/lxde/%{name}-%{version}.tar.gz
-# Source0-md5:	5dbe6076eb1a411278e1fc2bccf2d75d
-Patch0:		%{name}-0.2.1-fix-segfault.patch
+# Source0-md5:	16df627447838b170a72cc3a9ee21497
 URL:		http://wiki.lxde.org/en/LXLauncher
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2:2.12.0
+%{?with_gtk2:BuildRequires:	gtk+2-devel >= 2:2.12.0}
+%{?with_gtk3:BuildRequires:	gtk+3-devel}
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	menu-cache-devel
 BuildRequires:	pkgconfig
@@ -22,10 +31,10 @@ outperformes the original launcher developed by Xandros.
 
 %prep
 %setup -q
-%patch0 -p0
 
 %build
-%configure
+%configure \
+	%{?with_gtk3:--enable-gtk3}
 touch po/stamp-it
 %{__make}
 
