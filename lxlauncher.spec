@@ -10,7 +10,7 @@
 Summary:	lxauncher
 Name:		lxlauncher
 Version:	0.2.2
-Release:	1
+Release:	2
 License:	GPL v3
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/lxde/%{name}-%{version}.tar.gz
