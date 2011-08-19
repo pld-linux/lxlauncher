@@ -10,7 +10,7 @@
 Summary:	lxauncher
 Name:		lxlauncher
 Version:	0.2.2
-Release:	2
+Release:	3
 License:	GPL v3
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/lxde/%{name}-%{version}.tar.gz
@@ -44,8 +44,10 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-# there is ur locale so drop ur_PK
+# there is frp locale so drop frp
 %{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/{frp,ur_PK,tt_RU}
+mv $RPM_BUILD_ROOT%{_datadir}/locale/ur{_PK,}
+mv $RPM_BUILD_ROOT%{_datadir}/locale/tt{_RU,}
 
 %find_lang %{name}
 
