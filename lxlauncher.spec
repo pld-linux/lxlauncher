@@ -44,8 +44,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-# there is frp locale so drop frp
-%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/{frp,ur_PK,tt_RU}
+# there is no frp locale so drop frp
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/frp
 mv $RPM_BUILD_ROOT%{_datadir}/locale/ur{_PK,}
 mv $RPM_BUILD_ROOT%{_datadir}/locale/tt{_RU,}
 
