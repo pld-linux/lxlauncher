@@ -45,8 +45,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 # there is no frp locale so drop frp
-%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/frp
-mv $RPM_BUILD_ROOT%{_datadir}/locale/ur{_PK,}
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/{frp,ur_PK}
 mv $RPM_BUILD_ROOT%{_datadir}/locale/tt{_RU,}
 
 %find_lang %{name}
